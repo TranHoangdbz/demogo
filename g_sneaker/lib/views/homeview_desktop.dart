@@ -280,76 +280,167 @@ class _HomeviewDesktopState extends State<HomeviewDesktop> {
                                 return Container(
                                   margin: const EdgeInsets.only(bottom: 20),
                                   width: 304,
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          height: 100,
-                                          width: 100,
-                                          child: Container(
-                                            height: 80,
-                                            width: 80,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              color: _items[index]["color"]
-                                                  .toString()
-                                                  .toColored(),
-                                            ),
+                                  child: Row(children: [
+                                    Container(
+                                      height: 100,
+                                      width: 120,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            left: 20,
+                                            right: 20,
+                                            top: 10,
+                                            bottom: 10,
                                             child: Container(
-                                                margin:
-                                                    EdgeInsets.only(right: 20),
+                                              height: 80,
+                                              width: 80,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(40),
+                                                color: _items[index]["color"]
+                                                    .toString()
+                                                    .toColored(),
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: -20,
+                                            bottom: 0,
+                                            left: 0,
+                                            right: 0,
+                                            child: Container(
                                                 child: Transform(
                                                     alignment:
                                                         FractionalOffset.center,
                                                     transform:
                                                         Matrix4.rotationZ(
-                                                            -3.14159265358 / 8),
+                                                            -3.14159265358 / 6),
                                                     child: Image.network(
                                                         _items[index]
                                                             ["image"]))),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Container(
+                                      width: 160,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child: Text(
+                                              _items[index]["name"],
+                                              style: TextStyle(
+                                                  fontFamily: 'Rubik',
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w700),
+                                            ),
                                           ),
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              child: Text(
-                                                _items[index]["name"],
-                                                style: TextStyle(
-                                                    fontFamily: 'Rubik',
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    "${_items[index]["price"]}",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Rubik',
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w700),
+                                                  ),
+                                                ]),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                child: Row(
                                                   children: [
-                                                    Text(
-                                                      "${_items[index]["price"]}",
-                                                      style: TextStyle(
-                                                          fontFamily: 'Rubik',
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.w700),
+                                                    GestureDetector(
+                                                      onTap: () {},
+                                                      child: Container(
+                                                        height: 25,
+                                                        width: 25,
+                                                        padding:
+                                                            EdgeInsets.all(8),
+                                                        decoration: BoxDecoration(
+                                                            color: myGray
+                                                                .withOpacity(
+                                                                    0.3),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.5)),
+                                                        child: Image.asset(
+                                                            "assets/minus.png"),
+                                                      ),
                                                     ),
-                                                  ]),
-                                            ),
-                                          ],
-                                        )
-                                      ]),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Text("1"),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    GestureDetector(
+                                                      onTap: () {},
+                                                      child: Container(
+                                                        height: 25,
+                                                        width: 25,
+                                                        padding:
+                                                            EdgeInsets.all(8),
+                                                        decoration: BoxDecoration(
+                                                            color: myGray
+                                                                .withOpacity(
+                                                                    0.3),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.5)),
+                                                        child: Image.asset(
+                                                            "assets/plus.png"),
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                              GestureDetector(
+                                                onTap: () {},
+                                                child: Container(
+                                                  height: 30,
+                                                  width: 30,
+                                                  padding: EdgeInsets.all(6),
+                                                  decoration: BoxDecoration(
+                                                      color: myYellow,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15)),
+                                                  child: Image.asset(
+                                                      "assets/trash.png"),
+                                                ),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ]),
                                 );
                               },
                             ),
